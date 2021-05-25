@@ -8,7 +8,7 @@ PYTHONVERS=python3.8 python3.7 python3.6
 
 # VERSION is updated in "make version-update" step and derived
 # from CHANGES.txt. Do not edit.
-VERSION=0.0.1b1
+VERSION=0.0.1b2
 SHELL:= /bin/bash
 
 LONG_TESTS=false
@@ -194,8 +194,7 @@ release-test:
 	source env/bin/activate && \
 		pip install pytest && \
 		pip uninstall -y hapiplot && \
-		pip install -e ../client-python && \\
-		pip install 'hapiplot==$(VERSION)' \
+		pip install --pre 'hapiplot==$(VERSION)' \
 			--index-url $(URL)/simple  \
 			--extra-index-url https://pypi.org/simple && \
 		env/bin/pytest -v test/hapiplot_test.py && \

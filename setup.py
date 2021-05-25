@@ -2,7 +2,7 @@ import sys
 from setuptools import setup, find_packages
 
 #install_requires = ["matplotlib", "hapiclient @ git+https://github.com/hapi-server/client-python#egg=hapiclient"]
-install_requires = ["matplotlib", "hapiclient>=0.2.0"]
+install_requires = ["matplotlib", "hapiclient>0.1.7"]
 
 if sys.argv[1] == 'develop':
     install_requires.append("deepdiff<3.3.0")
@@ -17,7 +17,7 @@ if sys.argv[1] == 'develop':
 # version is modified by misc/version.py (executed from Makefile). Do not edit.
 setup(
     name='hapiplot',
-    version='0.0.1b1',
+    version='0.0.1b2',
     author='Bob Weigel',
     author_email='rweigel@gmu.edu',
     packages=find_packages(),
