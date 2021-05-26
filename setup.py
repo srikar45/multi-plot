@@ -24,6 +24,6 @@ setup(
     url='http://pypi.python.org/pypi/hapiplot/',
     license='LICENSE.txt',
     description='Plot data from HAPI server',
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
     install_requires=install_requires
 )

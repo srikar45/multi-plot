@@ -2,5 +2,6 @@ v0.0.1b0: Initial package based on plot code removed from v0.1.9 of hapiclient
 v0.0.1b1: Change dependency to be for v0.2.0b0 of hapiclient
 v0.0.1b2: Change dependency to be for >v0.1.7 of hapiclient; allow --pre in Makefile
 v0.0.1b3:
-	2021-05-26 Refactor Makefile
-
+	2021-05-26 d3a598b Refactor Makefile
+	2021-05-26 33ed6b6 Update README.md
+	2021-05-26 411f7a3 Fix README file extension
