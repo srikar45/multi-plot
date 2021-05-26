@@ -8,7 +8,7 @@ PYTHONVERS=python3.8 python3.7 python3.6
 
 # VERSION is updated in "make version-update" step and derived
 # from CHANGES.txt. Do not edit.
-VERSION=0.0.1b2
+VERSION=0.0.1b3
 SHELL:= /bin/bash
 
 LONG_TESTS=false
@@ -138,6 +138,19 @@ $(CONDA)/envs/$(PYTHON): ./anaconda3
 ################################################################################
 
 ################################################################################
+venv-test:
+	cp hapiplot_demo.py /tmp # TODO: Explain why needed.
+	source env-$(PYTHON)/bin/activate && \
+		pip install pytest && \
+		pip uninstall -y hapiplot && \
+		pip install --pre '$(PACKAGE)' \
+			--index-url $(URL)/simple  \
+			--extra-index-url https://pypi.org/simple && \
+		env-$(PYTHON)/bin/pytest -v test/test_hapiplot.py && \
+		env-$(PYTHON)/bin/ipython /tmp/hapiplot_demo.py
+################################################################################
+
+################################################################################
 # Packaging
 package:
 	make clean
@@ -157,16 +170,7 @@ env-$(PYTHON):
 package-test:
 	make package
 	make env-$(PYTHON)
-	cp hapiplot_demo.py /tmp # TODO: Explain why needed.
-	source env-$(PYTHON)/bin/activate && \
-		pip install pytest ipython && \
-		pip uninstall -y hapiplot && \
-		pip install -e ../client-python && \
-		pip install dist/hapiplot-$(VERSION).tar.gz \
-			--index-url $(URL)/simple  \
-			--extra-index-url https://pypi.org/simple && \
-		env-$(PYTHON)/bin/pytest -v test/test_hapiplot.py && \
-		env-$(PYTHON)/bin/ipython /tmp/hapiplot_demo.py
+	make venv-test PACKAGE='dist/hapiplot-$(VERSION).tar.gz'
 ################################################################################
 
 ################################################################################
@@ -190,15 +194,7 @@ release-test-all:
 release-test:
 	rm -rf env
 	$(CONDA_ACTIVATE) $(PYTHON); pip install virtualenv; $(PYTHON) -m virtualenv env
-	cp hapiplot_demo.py /tmp # TODO: Explain why needed.
-	source env/bin/activate && \
-		pip install pytest && \
-		pip uninstall -y hapiplot && \
-		pip install --pre 'hapiplot==$(VERSION)' \
-			--index-url $(URL)/simple  \
-			--extra-index-url https://pypi.org/simple && \
-		env/bin/pytest -v test/hapiplot_test.py && \
-		env/bin/pytest -v /tmp/hapiplot_demo.py
+	make venv-test PACKAGE='hapiplot==$(VERSION)'
 ################################################################################
 
 ################################################################################
@@ -216,7 +212,7 @@ version-tag:
 ################################################################################
 # Install package in local directory (symlinks made to local dir)
 install-local:
-#	python setup.py -e .
+	#python setup.py -e .
 	$(CONDA_ACTIVATE) $(PYTHON); pip install --editable .
 
 install:
