@@ -5,3 +5,4 @@ v0.0.1b3:
 	2021-05-26 d3a598b Refactor Makefile
 	2021-05-26 33ed6b6 Update README.md
 	2021-05-26 411f7a3 Fix README file extension
+	2021-05-26 c8ec6ad Add actual package files
