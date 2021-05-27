@@ -8,7 +8,7 @@ PYTHONVERS=python3.8 python3.7 python3.6
 
 # VERSION is updated in "make version-update" step and derived
 # from CHANGES.txt. Do not edit.
-VERSION=0.0.1b3
+VERSION=0.0.1b4
 SHELL:= /bin/bash
 
 LONG_TESTS=false
