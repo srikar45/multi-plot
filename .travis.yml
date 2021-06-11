@@ -13,5 +13,28 @@ jobs:
         - sudo pip install tox-travis
       script: sudo tox -e repo-test
 
+    - name: "Python 3.7 on macOS"
+      os: osx
+      osx_image: xcode11.4
+      language: shell
+      before_install:
+        - python3 --version
+        - python3 -m pip install --upgrade pip
+        - sudo pip install -e . --pre
+        - python3 -m pip install hapiplot --upgrade
+        - sudo pip install tox-travis
+      script: sudo tox -e repo-test
+
+    - name: "Python 3.8 on macOS"
+      os: osx
+      osx_image: xcode11.6
+      language: shell
+      before_install:
+        - python3 --version
+        - python3 -m pip install --upgrade pip
+        - sudo pip install -e . --pre
+        - python3 -m pip install hapiplot --upgrade
+        - sudo pip install tox-travis
+      script: sudo tox -e repo-test
 
 install: pip install --upgrade pip
