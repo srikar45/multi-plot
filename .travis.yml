@@ -14,7 +14,6 @@ jobs:
         - pip install -e . --pre
         - python3 -m pip install hapiplot --upgrade
         - python3 -m pip install tox-travis
-      script: tox -e repo-testwindows
 
     - name: "Python 3.7 on Linux"
       os: linux
@@ -28,7 +27,7 @@ jobs:
         - pip install -e . --pre
         - python3 -m pip install hapiplot --upgrade
         - python3 -m pip install tox-travis
-      script: tox -e repo-test
+
 
     - name: "Python 3.8 on Linux"
       os: linux
@@ -42,7 +41,7 @@ jobs:
         - pip install -e . --pre
         - python3 -m pip install hapiplot --upgrade
         - python3 -m pip install tox-travis
-      script: tox -e repo-test
+
 
     - name: "Python 3.6 on macOS"
       os: osx
