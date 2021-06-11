@@ -53,6 +53,7 @@ jobs:
         - sudo pip install -e . --pre
         - python3 -m pip install hapiplot --upgrade
         - sudo pip install tox-travis
+      script: sudo tox -e repo-test
 
     - name: "Python 3.7 on macOS"
       os: osx
@@ -64,6 +65,7 @@ jobs:
         - sudo pip install -e . --pre
         - python3 -m pip install hapiplot --upgrade
         - sudo pip install tox-travis
+      script: sudo tox -e repo-test
 
     - name: "Python 3.8 on macOS"
       os: osx
@@ -75,6 +77,7 @@ jobs:
         - sudo pip install -e . --pre
         - python3 -m pip install hapiplot --upgrade
         - sudo pip install tox-travis
+      script: sudo tox -e repo-test
 
 
     - name: "Python 3.6 on Windows"
@@ -108,5 +111,5 @@ jobs:
         - python -m pip install tox-travis
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 
-script: sudo tox -e repo-test
+script: tox -e repo-test
 install: pip install --upgrade pip
