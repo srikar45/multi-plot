@@ -1,0 +1,16 @@
+language: python
+jobs:
+  include:
+    - name: "Python 3.8 on Windows"
+      os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.8.8
+        - python --version
+        - python -m pip install --upgrade pip
+        - python -m pip install tox-travis
+      env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
+
+install: pip install --upgrade pip
+script:
+  - tox -e repo-testwindows
