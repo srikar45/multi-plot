@@ -1,9 +1,9 @@
-# Basic demo of hapiclient. Install package using
+# Basic demo of hapiclient. Install package using##
 #   pip install hapiclient --upgrade
 # from command line.
 
 # Note:
-# In IPython, enter 
+# In IPython, enter
 #    %matplotlib qt
 # on command line to open plots in new window. Enter
 #    %matplotlib inline
@@ -39,12 +39,12 @@ def omniweb():
 
     # Plot all parameters
     hapiplot(data, meta)
-    
+
 def sscweb():
 
     from hapiclient import hapi
     from hapiplot import hapiplot
-    
+
     # SSCWeb data
     server     = 'http://hapi-server.org/servers/SSCWeb/hapi'
     dataset    = 'ace'
@@ -55,7 +55,7 @@ def sscweb():
     data, meta = hapi(server, dataset, parameters, start, stop, **opts)
     hapiplot(data, meta, **opts)
 
-def cdaweb():    
+def cdaweb():
 
     from hapiclient import hapi
     from hapiplot import hapiplot
@@ -66,7 +66,7 @@ def cdaweb():
     start      = '2001-01-01T05:00:00'
     stop       = '2001-01-01T10:00:00'
     parameters = 'Magnitude,BGSEc'
-    opts       = {'logging': True, 'usecache': True}    
+    opts       = {'logging': True, 'usecache': True}
     data, meta = hapi(server, dataset, parameters, start, stop, **opts)
     hapiplot(data, meta, **opts)
 
@@ -85,7 +85,7 @@ def cdaweb():
     print('%d CDAWeb datasets' % len(meta['catalog']))
     for i in range(0, 3):
         print('  %d. %s' % (i, meta['catalog'][i]['id']))
-    print('  ...')    
+    print('  ...')
     print('  %d. %s' % (len(meta['catalog']), meta['catalog'][-1]['id']))
     print('')
 
@@ -106,7 +106,7 @@ def cassini():
     opts       = {'usecache': True, 'logging': True}
 
     data, meta = hapi(server, dataset, parameters, start, stop, **opts)
-    
+
     popts = {'logging': False, 'logy': True, 'logz': True}
     hapiplot(data, meta, **popts)
 
@@ -117,13 +117,13 @@ def lisird():
 
     server     = 'http://lasp.colorado.edu/lisird/hapi';
     dataset    = 'sme_ssi';
-    parameters = 'irradiance'; 
+    parameters = 'irradiance';
     start      = '1981-10-09T00:00:00.000Z';
     stop       = '1981-10-14T00:00:00.000Z';
 
     opts       = {'usecache': True, 'logging': True}
     data, meta = hapi(server, dataset, parameters, start, stop, **opts)
-    hapiplot(data, meta)    
+    hapiplot(data, meta)
 
 if __name__ == '__main__':
     try:

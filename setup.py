@@ -1,7 +1,7 @@
 import sys
 from setuptools import setup, find_packages
 
-#install_requires = ["matplotlib", "hapiclient @ git+https://github.com/hapi-server/client-python#egg=hapiclient"]
+#install_requires = ["matplotlib", "hapiclient @ git+https://github.com/hapi-server/client-python#egg=hapiclient"]##
 install_requires = ["matplotlib", "hapiclient>0.1.7"]
 
 if sys.argv[1] == 'develop':
