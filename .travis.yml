@@ -108,5 +108,5 @@ jobs:
         - python -m pip install tox-travis
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 
-script: tox -e repo-test
+script: sudo tox -e repo-test
 install: pip install --upgrade pip
